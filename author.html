@@ -18,6 +18,10 @@
 
     <input type="button" onclick="checkAuthor()" value="Check the guess">
 </form>
+<div id="image"> 
+    <button onclick="selectImage()" >  <img id="image1" src="arizona.jpg" alt="Arizona" height="100px" width="100px"></button>
+
+</div>
 
 <p id="output">Result</p>
 
@@ -25,7 +29,7 @@
 
 var good = 0;
 var oops = 0;
-
+var useImage =1;
 function checkAuthor(){
     //Get values from input
     console.log("Getting form values")
@@ -47,6 +51,25 @@ function checkAuthor(){
 
     output.innerHTML = "Count of perfect attempts: " + good + "<br>Count of mismatched inputs: " + oops;
 
+}
+function selectImage()
+{
+    switch(useImage)
+    {
+        case 1: var img = document.getElementById('image1');
+                img.src='kolkata.jpg';
+                useImage++;
+                break;
+        case 2: var img = document.getElementById('image1');
+                img.src='rome.jpg';
+                useImage++;
+                break;
+        case 3: var img = document.getElementById('image1');
+                img.src='arizona.jpg';
+                console.log(useImage);
+                useImage=1;
+                break;
+    }
 }
 </script>
 </body>
