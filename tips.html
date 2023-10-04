@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Tips </title>
+</head>
+
+<body>
+    <h1> shows tip amounts</h1>
+
+    <h2>Getting input</h2>
+
+    <label for="value">Enter base amount </label>
+    <input type="number" id="amount" value=50> <br>
+
+    <label for="value_tip">Enter the tip percent </label>
+    <input type="number" id="tip" value="15"> <br>
+
+    <button type="submit" onclick="tips()">Show tip</button> <br>
+
+
+    <div id="output"> </div>
+
+    <script>
+
+        function tips() {
+            let baseValue = parseInt(document.getElementById("amount").value);
+            let tipValue = parseInt(document.getElementById("tip").value);
+            let tip2 = tipValue;
+            let toShow = "Tip are :";
+            for (i = 0; i < 5; i++) {
+                tipValue = tipValue + i * 4;
+                const tip_cal = (baseValue * (tipValue)) / 100;
+                toShow = toShow + `${tipValue}% is ${tip_cal.toFixed(1)}; `;
+                tipValue=tip2;
+
+            }
+            document.getElementById("output").innerHTML = toShow;
+
+
+
+
+
+        }
+    </script>
+
+</body>
+
+</html>
