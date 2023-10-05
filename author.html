@@ -16,7 +16,7 @@
     <label for="value1">Guess the author</label>
     <input type ="text" id="Author"><br>
 
-    <input type="button" onclick="checkAuthor()" value="Check the guess">
+    <input id="clicking" type="button" onclick="checkAuthor()" value="Check the guess">
 </form>
 
 
@@ -50,6 +50,11 @@ function checkAuthor(){
         oops++;
         alert("Sorry")
     }
+    if (oops>7)
+    {
+        document.getElementById("clicking").onclick = newfunction;
+
+    }
 
     output.innerHTML = "Count of perfect attempts: " + good + "<br>Count of mismatched inputs: " + oops;
 
@@ -72,6 +77,10 @@ function selectImage()
                 useImage=1;
                 break;
     }
+}
+function newfunction()
+{
+    alert("Sorry, ran out of guesses.");
 }
 </script>
 </body>
