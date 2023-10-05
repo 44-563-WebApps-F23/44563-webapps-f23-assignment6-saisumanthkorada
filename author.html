@@ -1,87 +1,88 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title> JAVA_SCRIPT</title>
-    </head>
- 
+
+<head>
+    <title> JAVA_SCRIPT</title>
+</head>
+
 <body>
 
-<h1 style="background-color: bisque; font-family: Georgia, 'Times New Roman', Times, serif; color: black;">Author entry</h1>
-<h2> Getting input </h2>
+    <h1 style="background-color: bisque; font-family: Georgia, 'Times New Roman', Times, serif; color: black;">Author
+        entry Sumanth</h1>
+    <h2> Getting input </h2>
 
-<form>
-    <label for="value">The hidden author name: </label>
-    <input type ="password" id="hidden" value="Dickens"> <br>
+    <form>
+        <label for="value">The hidden author name: </label>
+        <input type="password" id="hidden" value="Dickens"> <br>
 
-    <label for="value1">Guess the author</label>
-    <input type ="text" id="Author"><br>
+        <label for="value1">Guess the author</label>
+        <input type="text" id="Author"><br>
 
-    <input id="clicking" type="button" onclick="checkAuthor()" value="Check the guess">
-</form>
+        <input id="clicking" type="button" onclick="checkAuthor()" value="Check the guess">
+    </form>
 
 
-<p id="output">Result</p>
+    <p id="output">Result</p>
+    <div class="container">
+        <div id="image">
+            <button onclick="selectImage()"> <img id="image1" src="arizona.jpg" alt="Arizona" height="100px"
+                    width="100px"></button>
 
-<div id="image"> 
-    <button onclick="selectImage()" >  <img id="image1" src="arizona.jpg" alt="Arizona" height="100px" width="100px"></button>
+        </div>
+    </div>
 
-</div>
+    <script>
 
-<script> 
+        var good = 0;
+        var oops = 0;
+        var useImage = 1;
+        function checkAuthor() {
+            //Get values from input
+            console.log("Getting form values")
+            var originalName = document.getElementById("hidden").value;
+            var GivenName = document.getElementById("Author").value;
 
-var good = 0;
-var oops = 0;
-var useImage =1;
-function checkAuthor(){
-    //Get values from input
-    console.log("Getting form values")
-    var originalName = document.getElementById("hidden").value;
-    var GivenName = document.getElementById("Author").value;
-    
 
-    <!--Compare both inputs-->
-    out = document.getElementById("output")
+            <!--Compare both inputs-->
+            out = document.getElementById("output")
 
-    if(originalName==GivenName){
-        good++
-        alert("You got it right");
-        
-    } else {
-        oops++;
-        alert("Sorry")
-    }
-    if (oops>7)
-    {
-        document.getElementById("clicking").onclick = newfunction;
+            if (originalName == GivenName) {
+                good++
+                alert("You got it right");
 
-    }
+            } else {
+                oops++;
+                alert("Sorry")
+            }
+            if (oops > 7) {
+                document.getElementById("clicking").onclick = newfunction;
 
-    output.innerHTML = "Count of perfect attempts: " + good + "<br>Count of mismatched inputs: " + oops;
+            }
 
-}
-function selectImage()
-{
-    switch(useImage)
-    {
-        case 1: var img = document.getElementById('image1');
-                img.src='kolkata.jpg';
-                useImage++;
-                break;
-        case 2: var img = document.getElementById('image1');
-                img.src='rome.jpg';
-                useImage++;
-                break;
-        case 3: var img = document.getElementById('image1');
-                img.src='arizona.jpg';
-                console.log(useImage);
-                useImage=1;
-                break;
-    }
-}
-function newfunction()
-{
-    alert("Sorry, ran out of guesses.");
-}
-</script>
+            output.innerHTML = "Count of perfect attempts: " + good + "<br>Count of mismatched inputs: " + oops;
+
+        }
+        function selectImage() {
+            switch (useImage) {
+                case 1: var img = document.getElementById('image1');
+                    img.src = 'kolkata.jpg';
+                    useImage++;
+                    break;
+                case 2: var img = document.getElementById('image1');
+                    img.src = 'rome.jpg';
+                    useImage++;
+                    break;
+                case 3: var img = document.getElementById('image1');
+                    img.src = 'arizona.jpg';
+                    console.log(useImage);
+                    useImage = 1;
+                    break;
+            }
+        }
+        function newfunction() {
+            alert("Sorry, ran out of guesses.");
+        }
+    </script>
 </body>
-</html> 
+
+</html>
