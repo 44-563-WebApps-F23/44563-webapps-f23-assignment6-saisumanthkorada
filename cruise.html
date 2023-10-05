@@ -22,20 +22,41 @@
         <br><br>
         <button class="btn btn-success" type="button" class="btn btn-secondary" onclick="selectCruise()">Select a
             Cruise</button>
+    </form><br> <br>
+    <form>
+        <label for="day">Enter the number of days </label>
+        <input type ="text" id="day">
+        <br><br>
+
+        <label for="price">Enter price </label>
+        <input type ="text" id="price">
+        <br><br>
+        <input class="btn btn-success" type="button" onclick="updateCruise()" value="Update the Cruise">
     </form>
 
 
     <p id="result"> </p>
+    <p id="output"></p>
 
     <script>
         let my_cruise = {};
         function selectCruise() {
             my_cruise = {};
-            my_cruise.shared = document.getElementById("cabin").value;
-            my_cruise.breakfast = document.getElementById("breakfast").value;
-            my_cruise.pool = document.getElementById("pool").value;
+            my_cruise.shared = document.getElementById("cabin").checked;
+            my_cruise.breakfast = document.getElementById("breakfast").checked;
+            my_cruise.pool = document.getElementById("pool").checked;
             document.getElementById("result").innerHTML = JSON.stringify(my_cruise);
         }
+        function updateCruise(){
+            my_cruise={};
+        const day = document.getElementById("day").value;
+        const price = document.getElementById("price").value;
+
+        my_cruise.day = day;
+        my_cruise.price = price;
+
+        document.getElementById("output").innerHTML = JSON.stringify(my_cruise);
+    }
     </script>
 
 </body>
